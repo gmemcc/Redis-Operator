@@ -3,7 +3,8 @@ kind: RedisCluster
 metadata:
   name: {{ template "cluster-name" . }}
   labels:
-    app: {{ template "name" . }}
+    tier: middleware
+    application: {{ template "name" . }}
 spec:
   numberOfMaster: {{ .Values.numberOfMaster }}
   replicationFactor: {{ .Values.replicationFactor }}
@@ -11,7 +12,8 @@ spec:
   podTemplate:
     metadata:
       labels:
-        app: {{ template "name" . }}
+        tier: middleware
+        application: {{ template "name" . }}
     spec:
       serviceAccountName: "{{ .Values.serviceAccount }}"
       volumes:
@@ -31,7 +33,7 @@ spec:
             "--c=/redis-conf/redis.conf",
             "--logtostderr=true", 
             "--alsologtostderr=true",
-            "--rs={{ template "service-name" . }}", 
+            "--rs={{ template "service-name" . }}",
             "--t=10s", 
             "--d=10s", 
             "--ns=$(POD_NAMESPACE)",
@@ -45,7 +47,7 @@ spec:
             "--config-file=/redis-extra-conf/redis.conf",
 {{- end }}
             "--cluster-node-timeout=2000"]
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
               - containerPort: 6379
                 name:  redis

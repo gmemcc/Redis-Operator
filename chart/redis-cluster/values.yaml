@@ -10,7 +10,7 @@ annotations:
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
 image:
-  repository: redisoperator/redisnode
+  repository: docker.gmem.cc/redisoperator/redisnode
   tag: master
   pullPolicy: IfNotPresent
 log:

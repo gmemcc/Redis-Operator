@@ -19,7 +19,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Expand the name of the chart.
 */}}
 {{- define "cluster-name" -}}
-{{- $name := default .Release.Name .Values.nameOverride -}}
+{{- $name := default .Release.Name .Values.clusterNameOverride -}}
 {{- printf "%s" $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
