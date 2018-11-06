@@ -12,7 +12,7 @@ annotations:
 image:
   repository: docker.gmem.cc/redisoperator/redisnode
   tag: master
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 log:
   level: 6
 resources: {}

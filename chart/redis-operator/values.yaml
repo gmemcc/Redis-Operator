@@ -4,9 +4,9 @@
 clusterNameOverride: default
 replicaCount: 1
 image:
-  repository: redisoperator/operator
+  repository: docker.gmem.cc/redisoperator/operator
   tag: master
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 log:
   level: 2
 strategy: Recreate
