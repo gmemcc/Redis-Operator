@@ -2,8 +2,7 @@ ARTIFACT_OPERATOR=redis-operator
 ARTIFACT_INITCONTAINER=init-container
 
 # 0.0 shouldn't clobber any released builds
-PREFIX=redisoperator/
-#PREFIX = gcr.io/google_containers/
+PREFIX=docker.gmem.cc/redisoperator/
 
 SOURCES := $(shell find $(SOURCEDIR) ! -name "*_test.go" -name '*.go')
 
