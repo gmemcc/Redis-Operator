@@ -4,7 +4,7 @@ metadata:
   name: {{ template "name" . }}
   labels:
     tier: devops
-    application: {{ template "name" . }}
+    app: {{ template "name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         tier: devops
-        application: {{ template "name" . }}
+        app: {{ template "name" . }}
         release: {{ .Release.Name }}
     spec:
       serviceAccountName: "{{ .Values.serviceAccount }}"

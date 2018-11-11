@@ -4,7 +4,7 @@ metadata:
   name: {{ template "cluster-name" . }}
   labels:
     tier: middleware
-    application: {{ template "name" . }}
+    app: {{ template "name" . }}
 spec:
   numberOfMaster: {{ .Values.numberOfMaster }}
   replicationFactor: {{ .Values.replicationFactor }}
@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         tier: middleware
-        application: {{ template "name" . }}
+        app: {{ template "name" . }}
     spec:
       serviceAccountName: "{{ .Values.serviceAccount }}"
       volumes:
