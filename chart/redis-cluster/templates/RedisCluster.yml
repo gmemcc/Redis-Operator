@@ -5,6 +5,7 @@ metadata:
   labels:
     tier: middleware
     app: {{ template "name" . }}
+    version: {{ .Chart.appVersion }}
 spec:
   numberOfMaster: {{ .Values.numberOfMaster }}
   replicationFactor: {{ .Values.replicationFactor }}
@@ -14,6 +15,7 @@ spec:
       labels:
         tier: middleware
         app: {{ template "name" . }}
+        version: {{ .Chart.appVersion }}
     spec:
       serviceAccountName: "{{ .Values.serviceAccount }}"
       volumes:
